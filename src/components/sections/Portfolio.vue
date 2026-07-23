@@ -48,7 +48,7 @@ const projects = [
           :href="project.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 p-6 text-left transition hover:border-brand-blue hover:shadow-lg dark:border-slate-700 dark:hover:border-brand-yellow"
+          class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:border-brand-blue hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-brand-yellow"
         >
           <div
             class="absolute inset-x-0 top-0 h-1 bg-brand-blue opacity-0 transition group-hover:opacity-100"
@@ -68,7 +68,7 @@ const projects = [
             <span
               v-for="tag in project.tags"
               :key="tag"
-              class="rounded-full bg-brand-yellow/15 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-brand-yellow/30 dark:text-slate-200"
+              class="rounded-full bg-brand-blue/10 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-brand-blue/20 dark:text-slate-200"
             >
               {{ tag }}
             </span>

@@ -30,7 +30,7 @@ const mobileMenuOpen = ref(false)
       <div class="flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
         <a
           href="#"
-          class="flex items-center gap-1.5 text-base font-semibold text-brand-blue sm:gap-2 sm:text-lg dark:text-white"
+          class="flex items-center gap-1.5 text-base font-semibold text-brand-blue sm:gap-2 sm:text-lg dark:text-brand-yellow"
           @click="mobileMenuOpen = false"
         >
           <span class="flex size-8 shrink-0 items-center justify-center rounded-lg p-1 dark:bg-white">

@@ -1,4 +1,52 @@
 <script setup>
+import { onMounted, onUnmounted, ref } from 'vue'
+
+const terminalLines = [
+  '$ jd-nexus discover',
+  '✓ requirements gathered',
+  '',
+  '$ jd-nexus design',
+  '✓ wireframes approved',
+  '',
+  '$ jd-nexus build --stage all',
+  '✓ features shipped',
+  '',
+  '$ jd-nexus launch',
+  '✓ live and supported 🚀',
+]
+
+const typedText = ref('')
+let timer = null
+
+function schedule(fn, delay) {
+  timer = setTimeout(fn, delay)
+}
+
+onMounted(() => {
+  const full = terminalLines.join('\n')
+  let i = 0
+
+  function typeTick() {
+    i++
+    typedText.value = full.slice(0, i)
+    if (i >= full.length) {
+      schedule(resetAndType, 2200)
+      return
+    }
+    schedule(typeTick, 30)
+  }
+
+  function resetAndType() {
+    i = 0
+    typedText.value = ''
+    schedule(typeTick, 400)
+  }
+
+  typeTick()
+})
+
+onUnmounted(() => clearTimeout(timer))
+
 const steps = [
   {
     step: '01',
@@ -50,6 +98,43 @@ const steps = [
           </p>
         </div>
       </div>
+
+      <div
+        class="mx-auto mt-12 w-full max-w-lg overflow-hidden rounded-xl border border-slate-200 bg-slate-100 text-left shadow-lg dark:border-slate-700 dark:bg-slate-900"
+        aria-hidden="true"
+      >
+        <div class="flex items-center gap-1.5 border-b border-slate-200 px-4 py-2.5 dark:border-slate-700">
+          <span class="size-2.5 rounded-full bg-red-500"></span>
+          <span class="size-2.5 rounded-full bg-brand-yellow"></span>
+          <span class="size-2.5 rounded-full bg-emerald-500"></span>
+          <span class="ml-2 text-xs text-slate-500 dark:text-slate-400">process.sh</span>
+        </div>
+        <pre
+          class="overflow-x-auto p-4 text-sm leading-relaxed text-slate-700 dark:text-slate-200"
+        ><code>{{ typedText }}<span class="typing-cursor text-brand-blue dark:text-brand-yellow">▌</span></code></pre>
+      </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.typing-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-cursor {
+    animation: none;
+  }
+}
+</style>
