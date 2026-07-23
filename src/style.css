@@ -3,8 +3,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brand-blue: #1e40af;
-  --color-brand-blue-light: #3b82f6;
+  --color-brand-blue: #0047d1;
+  --color-brand-blue-light: #005ff8;
   --color-brand-yellow: #facc15;
   --color-brand-yellow-dark: #eab308;
 

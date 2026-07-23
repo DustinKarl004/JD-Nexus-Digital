@@ -110,8 +110,8 @@ const steps = [
           <span class="ml-2 text-xs text-slate-500 dark:text-slate-400">process.sh</span>
         </div>
         <pre
-          class="overflow-x-auto p-4 text-sm leading-relaxed text-slate-700 dark:text-slate-200"
-        ><code>{{ typedText }}<span class="typing-cursor text-brand-blue dark:text-brand-yellow">▌</span></code></pre>
+          class="relative overflow-x-auto p-4 text-sm leading-relaxed text-slate-700 dark:text-slate-200"
+        ><code class="invisible block" aria-hidden="true">{{ terminalLines.join('\n') }}</code><code class="absolute inset-0 p-4">{{ typedText }}<span class="typing-cursor text-brand-blue dark:text-brand-yellow">▌</span></code></pre>
       </div>
     </div>
   </section>
