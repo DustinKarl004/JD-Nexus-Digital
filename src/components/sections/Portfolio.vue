@@ -48,10 +48,10 @@ const projects = [
           :href="project.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:border-brand-blue hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-brand-yellow"
+          class="group relative flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:border-brand-blue hover:shadow-lg active:border-brand-blue active:shadow-lg dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-brand-yellow dark:active:border-brand-yellow"
         >
           <div
-            class="absolute inset-x-0 top-0 h-1 bg-brand-blue opacity-0 transition group-hover:opacity-100"
+            class="absolute inset-x-0 top-0 h-1 bg-brand-blue opacity-0 transition group-hover:opacity-100 group-active:opacity-100"
           />
           <div class="mb-3 flex items-center gap-3">
             <img

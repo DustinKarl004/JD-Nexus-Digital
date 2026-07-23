@@ -44,7 +44,7 @@ const mobileMenuOpen = ref(false)
             v-for="link in navLinks"
             :key="link.to"
             :href="link.to"
-            class="text-sm font-medium text-slate-600 transition hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-yellow"
+            class="text-sm font-medium text-slate-600 transition hover:text-brand-blue active:text-brand-blue dark:text-slate-300 dark:hover:text-brand-yellow dark:active:text-brand-yellow"
           >
             {{ link.label }}
           </a>
@@ -84,7 +84,7 @@ const mobileMenuOpen = ref(false)
           v-for="link in navLinks"
           :key="link.to"
           :href="link.to"
-          class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-brand-blue/5 hover:text-brand-blue dark:text-slate-300 dark:hover:text-brand-yellow"
+          class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 transition hover:bg-brand-blue/5 hover:text-brand-blue active:bg-brand-blue/5 active:text-brand-blue dark:text-slate-300 dark:hover:text-brand-yellow dark:active:text-brand-yellow"
           @click="mobileMenuOpen = false"
         >
           {{ link.label }}

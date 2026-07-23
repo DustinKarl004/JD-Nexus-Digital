@@ -48,7 +48,7 @@ const values = [
           href="https://www.facebook.com/jdnexusdigital/"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 rounded-lg border-2 border-brand-blue bg-transparent px-5 py-2.5 font-medium text-brand-blue transition hover:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10"
+          class="inline-flex items-center gap-2 rounded-lg border-2 border-brand-blue bg-transparent px-5 py-2.5 font-medium text-brand-blue transition hover:bg-brand-blue/10 active:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10 dark:active:bg-brand-yellow/10"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-5">
             <path

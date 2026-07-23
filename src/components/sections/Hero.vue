@@ -70,13 +70,13 @@ onUnmounted(() => clearTimeout(badgeTimer))
       <div class="mt-4 flex flex-wrap items-center justify-center gap-4">
         <a
           href="#contact"
-          class="rounded-lg border-2 border-brand-blue bg-transparent px-6 py-3 font-medium text-brand-blue transition hover:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10"
+          class="rounded-lg border-2 border-brand-blue bg-transparent px-6 py-3 font-medium text-brand-blue transition hover:bg-brand-blue/10 active:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10 dark:active:bg-brand-yellow/10"
         >
           Get in touch
         </a>
         <a
           href="#services"
-          class="rounded-lg border-2 border-brand-blue bg-transparent px-6 py-3 font-medium text-brand-blue transition hover:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10"
+          class="rounded-lg border-2 border-brand-blue bg-transparent px-6 py-3 font-medium text-brand-blue transition hover:bg-brand-blue/10 active:bg-brand-blue/10 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10 dark:active:bg-brand-yellow/10"
         >
           Our services
         </a>

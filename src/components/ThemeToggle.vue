@@ -7,7 +7,7 @@ const { theme, toggleTheme } = useTheme()
 <template>
   <button
     type="button"
-    class="flex size-10 items-center justify-center rounded-full border border-slate-300 transition hover:border-brand-blue dark:border-slate-600 dark:hover:border-brand-yellow"
+    class="flex size-10 items-center justify-center rounded-full border border-slate-300 transition hover:border-brand-blue active:border-brand-blue dark:border-slate-600 dark:hover:border-brand-yellow dark:active:border-brand-yellow"
     :aria-label="theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
     @click="toggleTheme"
   >

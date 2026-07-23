@@ -41,10 +41,10 @@ const services = [
         <div
           v-for="service in services"
           :key="service.title"
-          class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:border-brand-blue hover:shadow-lg dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-brand-yellow"
+          class="group relative overflow-hidden rounded-xl border border-slate-200 bg-white p-6 text-left shadow-sm transition hover:border-brand-blue hover:shadow-lg active:border-brand-blue active:shadow-lg dark:border-slate-700 dark:bg-slate-800/50 dark:hover:border-brand-yellow dark:active:border-brand-yellow"
         >
           <div
-            class="absolute inset-x-0 top-0 h-1 bg-brand-blue opacity-0 transition group-hover:opacity-100"
+            class="absolute inset-x-0 top-0 h-1 bg-brand-blue opacity-0 transition group-hover:opacity-100 group-active:opacity-100"
           />
           <div
             class="mb-4 flex size-11 items-center justify-center rounded-lg bg-brand-blue/10 text-2xl dark:bg-brand-blue/20"

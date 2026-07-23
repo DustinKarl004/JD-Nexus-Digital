@@ -115,7 +115,7 @@ async function handleSubmit() {
       <button
         type="submit"
         :disabled="status === 'sending'"
-        class="mt-2 inline-flex items-center justify-center rounded-lg border-2 border-brand-blue bg-transparent px-8 py-3 font-medium text-brand-blue transition hover:bg-brand-blue/10 disabled:cursor-not-allowed disabled:opacity-60 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10"
+        class="mt-2 inline-flex items-center justify-center rounded-lg border-2 border-brand-blue bg-transparent px-8 py-3 font-medium text-brand-blue transition hover:bg-brand-blue/10 active:bg-brand-blue/10 disabled:cursor-not-allowed disabled:opacity-60 dark:border-brand-yellow dark:text-brand-yellow dark:hover:bg-brand-yellow/10 dark:active:bg-brand-yellow/10"
       >
         {{ status === 'sending' ? 'Sending...' : 'Send message' }}
       </button>
