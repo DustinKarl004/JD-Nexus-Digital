@@ -1,16 +1,16 @@
 <script setup>
-import healthmemoLogo from '../../assets/portfolio/healthmemo.png'
 import zaCompanyLogo from '../../assets/portfolio/za-company.png'
-import applypaLogo from '../../assets/portfolio/applypa.png'
+import fullStackTutorialLogo from '../../assets/portfolio/fullstacktutorial.svg'
+import jdNexusLogo from '../../assets/JD_Logo.webp'
 
 const projects = [
   {
-    name: 'HealthMemo',
-    logo: healthmemoLogo,
+    name: 'JD Nexus Digital',
+    logo: jdNexusLogo,
     description:
-      'HIPAA-compliant medicolegal case management system with OCR document processing, async task queues, cloud storage, and billing — deployed as a full multi-tenant admin dashboard.',
-    tags: ['Django', 'Vue.js', 'Celery', 'Redis', 'AWS', 'Stripe', 'Docker'],
-    url: 'https://staging.healthmemo.com/auth/signin',
+      'Our own agency website — a fast, responsive landing page with a portfolio showcase and contact form powered by EmailJS.',
+    tags: ['Vue.js', 'Tailwind CSS', 'Vite', 'EmailJS'],
+    url: 'https://jd-nexus-digital.vercel.app/',
   },
   {
     name: 'Z.A. Company',
@@ -21,12 +21,12 @@ const projects = [
     url: 'https://z-a-company.vercel.app/login',
   },
   {
-    name: 'Applypa',
-    logo: applypaLogo,
+    name: 'FullStackTutorial',
+    logo: fullStackTutorialLogo,
     description:
-      'Job board for Filipino remote workers with search & filtering, saved jobs, resume builder, cover letter generator, application tracking, and email notifications.',
-    tags: ['Django', 'Vue.js', 'PostgreSQL', 'Celery', 'Brevo'],
-    url: 'https://www.applypa.com/',
+      'Educational platform offering structured, step-by-step tutorials for learning full-stack web development, from frontend fundamentals to backend systems and deployment.',
+    tags: ['TypeScript', 'SCSS', 'JavaScript'],
+    url: 'https://full-stack-tutorial-gamma.vercel.app/',
   },
 ]
 </script>
