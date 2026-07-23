@@ -12,11 +12,22 @@ const form = reactive({
   name: '',
   email: '',
   message: '',
+  company: '', // honeypot: real users never fill this in, bots do
 })
 
 const status = ref('idle') // idle | sending | success | error
 
 async function handleSubmit() {
+  if (form.company) {
+    // silently drop likely-bot submissions without revealing the honeypot
+    form.name = ''
+    form.email = ''
+    form.message = ''
+    form.company = ''
+    status.value = 'success'
+    return
+  }
+
   if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
     status.value = 'error'
     return
@@ -89,6 +100,18 @@ async function handleSubmit() {
         ></textarea>
       </div>
 
+      <div class="hidden" aria-hidden="true">
+        <label for="company">Company</label>
+        <input
+          id="company"
+          v-model="form.company"
+          type="text"
+          name="company"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
       <button
         type="submit"
         :disabled="status === 'sending'"
@@ -97,13 +120,15 @@ async function handleSubmit() {
         {{ status === 'sending' ? 'Sending...' : 'Send message' }}
       </button>
 
-      <p v-if="status === 'success'" class="text-sm text-emerald-600 dark:text-emerald-400">
-        Thanks! Your message has been sent — we'll get back to you soon.
-      </p>
-      <p v-if="status === 'error'" class="break-words text-sm text-red-600 dark:text-red-400">
-        Something went wrong. Please email us directly at
-        <a href="mailto:dustinabalos677@gmail.com" class="underline">dustinabalos677@gmail.com</a>.
-      </p>
+      <div role="status" aria-live="polite">
+        <p v-if="status === 'success'" class="text-sm text-emerald-600 dark:text-emerald-400">
+          Thanks! Your message has been sent — we'll get back to you soon.
+        </p>
+        <p v-if="status === 'error'" class="break-words text-sm text-red-600 dark:text-red-400">
+          Something went wrong. Please email us directly at
+          <a href="mailto:dustinabalos677@gmail.com" class="underline">dustinabalos677@gmail.com</a>.
+        </p>
+      </div>
     </form>
   </section>
 </template>
