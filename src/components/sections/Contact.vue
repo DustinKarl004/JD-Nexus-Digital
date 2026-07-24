@@ -126,7 +126,7 @@ async function handleSubmit() {
         </p>
         <p v-if="status === 'error'" class="break-words text-sm text-red-600 dark:text-red-400">
           Something went wrong. Please email us directly at
-          <a href="mailto:dustinabalos677@gmail.com" class="underline">dustinabalos677@gmail.com</a>.
+          <a href="mailto:jdnexusdigital@gmail.com" class="underline">jdnexusdigital@gmail.com</a>.
         </p>
       </div>
     </form>

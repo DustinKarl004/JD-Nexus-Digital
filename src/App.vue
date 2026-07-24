@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import ThemeToggle from './components/ThemeToggle.vue'
 import Hero from './components/sections/Hero.vue'
 import About from './components/sections/About.vue'
@@ -20,10 +20,42 @@ const navLinks = [
 ]
 
 const mobileMenuOpen = ref(false)
+const activeSection = ref('')
+
+let observer
+
+onMounted(() => {
+  const sections = navLinks
+    .map((link) => document.querySelector(link.to))
+    .filter(Boolean)
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting)
+      if (visible.length > 0) {
+        activeSection.value = `#${visible[0].target.id}`
+      }
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  )
+
+  sections.forEach((section) => observer.observe(section))
+})
+
+onBeforeUnmount(() => {
+  observer?.disconnect()
+})
 </script>
 
 <template>
   <div class="flex min-h-svh flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-20 focus:rounded-md focus:bg-brand-blue focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white dark:focus:bg-brand-yellow dark:focus:text-slate-900"
+    >
+      Skip to main content
+    </a>
+
     <header
       class="sticky top-0 z-10 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-700 dark:bg-slate-900/80"
     >
@@ -34,7 +66,7 @@ const mobileMenuOpen = ref(false)
           @click="mobileMenuOpen = false"
         >
           <span class="flex size-8 shrink-0 items-center justify-center rounded-lg p-1 dark:bg-white">
-            <img :src="logo" alt="JD Nexus Digital" class="size-full object-contain" />
+            <img :src="logo" alt="JD Nexus Digital" width="32" height="32" class="size-full object-contain" />
           </span>
           <span class="truncate">JD Nexus Digital</span>
         </a>
@@ -44,7 +76,12 @@ const mobileMenuOpen = ref(false)
             v-for="link in navLinks"
             :key="link.to"
             :href="link.to"
-            class="text-sm font-medium text-slate-600 transition hover:text-brand-blue active:text-brand-blue dark:text-slate-300 dark:hover:text-brand-yellow dark:active:text-brand-yellow"
+            class="text-sm font-medium transition hover:text-brand-blue active:text-brand-blue dark:hover:text-brand-yellow dark:active:text-brand-yellow"
+            :class="
+              activeSection === link.to
+                ? 'text-brand-blue dark:text-brand-yellow'
+                : 'text-slate-600 dark:text-slate-300'
+            "
           >
             {{ link.label }}
           </a>
@@ -92,7 +129,7 @@ const mobileMenuOpen = ref(false)
       </nav>
     </header>
 
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <Hero />
       <About />
       <Services />

@@ -57,6 +57,10 @@ const projects = [
             <img
               :src="project.logo"
               :alt="project.name"
+              width="40"
+              height="40"
+              loading="lazy"
+              decoding="async"
               class="size-10 shrink-0 rounded-lg object-contain"
             />
             <h3 class="text-lg font-semibold">{{ project.name }}</h3>

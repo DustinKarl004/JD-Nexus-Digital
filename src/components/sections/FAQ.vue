@@ -65,12 +65,20 @@ function toggle(index) {
               <path d="M6 9l6 6 6-6" />
             </svg>
           </button>
-          <p
-            v-if="openIndex === index"
-            class="px-5 pb-4 text-sm text-slate-600 dark:text-slate-300"
+          <Transition
+            enter-active-class="transition-all duration-200 ease-out"
+            enter-from-class="grid-rows-[0fr] opacity-0"
+            enter-to-class="grid-rows-[1fr] opacity-100"
+            leave-active-class="transition-all duration-150 ease-in"
+            leave-from-class="grid-rows-[1fr] opacity-100"
+            leave-to-class="grid-rows-[0fr] opacity-0"
           >
-            {{ faq.answer }}
-          </p>
+            <div v-if="openIndex === index" class="grid">
+              <p class="overflow-hidden px-5 pb-4 text-sm text-slate-600 dark:text-slate-300">
+                {{ faq.answer }}
+              </p>
+            </div>
+          </Transition>
         </div>
       </div>
     </div>
